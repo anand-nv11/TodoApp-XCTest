@@ -5,9 +5,10 @@ struct AddEditTodoView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
 
+    let name: String = ""
     let todo: TodoItem?
     let viewModel: TodoListViewModel
-
+   
     @State private var title: String
     @State private var details: String
     @State private var dueDate: Date
