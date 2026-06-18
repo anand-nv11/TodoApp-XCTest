@@ -45,7 +45,9 @@ Unit testing
 UI testing
 Dark Mode support
 Production-ready project structure
+
 🚀 Features
+
 Add new todos
 Edit existing todos
 Delete todos
@@ -154,9 +156,6 @@ WebDriverAgent integration
 CI/CD automation pipelines
 CI/CD Integration
 GitHub Actions
-Jenkins
-Bitrise
-Azure DevOps
 Reporting Tools
 Allure Reports
 XCTest Reports
