@@ -77,6 +77,7 @@ Offline Support	✅
 
 The application follows the MVVM pattern.
 
+Architecture Flow
 User Interface (SwiftUI Views)
             ↓
       View Models
@@ -84,7 +85,6 @@ User Interface (SwiftUI Views)
      SwiftData Layer
             ↓
        Local Storage
-Layers
 Models
 
 Represents Todo entities and application data.
@@ -118,7 +118,7 @@ Read description
 📷 Screenshots
 Todo List	Add/Edit Todo	Todo Details
 Add Screenshots/todo-list.png	Add Screenshots/add-edit-todo.png	Add Screenshots/todo-details.png
-Suggested Additional Screenshots
+Additional Screens
 Search	Empty State	Dark Mode
 Add Screenshots/search.png	Add Screenshots/empty-state.png	Add Screenshots/dark-mode.png
 🛠 Tech Stack
@@ -135,26 +135,16 @@ Swift Testing
 XCTest
 XCUIAutomation
 🧪 Automation Support
-
-This application can be used for automation practice and demonstrations.
-
-Supported automation frameworks:
-
+Supported Frameworks
 XCTest
-Unit Testing
-UI Testing
+XCUIAutomation
 Appium
-
-Suitable for:
-
+Appium Use Cases
 iOS automation learning
 Appium Inspector practice
 WebDriverAgent integration
 CI/CD automation pipelines
-CI/CD Compatible
-
-Can be integrated with:
-
+CI/CD Integration
 GitHub Actions
 Jenkins
 Bitrise
@@ -163,155 +153,23 @@ Reporting Tools
 Allure Reports
 XCTest Reports
 HTML Reports
-📂 Project Structure
-TodoApp/
-├── Database/
-│   └── TodoDatabase.swift
-│
-├── Models/
-│   └── TodoItem.swift
-│
-├── ViewModels/
-│   └── TodoListViewModel.swift
-│
-├── Views/
-│   ├── AddEditTodoView.swift
-│   ├── TodoDetailView.swift
-│   ├── TodoListView.swift
-│   └── Components/
-│       ├── EmptyStateView.swift
-│       └── TodoCardView.swift
-│
-├── TodoAppTests/
-│
-└── TodoAppUITests/
-🔒 Data Persistence
-
-Todos are stored locally using SwiftData.
-
-Benefits include:
-
-Offline support
-Fast performance
-Native Apple framework
-Lightweight implementation
-Easy migration path
-🎨 UI Design Principles
-
-The interface focuses on:
-
-Simplicity
-Readability
-Native iOS appearance
-Accessibility
-Dark Mode compatibility
-
-The design follows Apple's Human Interface Guidelines to ensure a familiar user experience.
-
-♿ Accessibility
-
-Implemented accessibility improvements include:
-
-Dynamic system colors
-Native controls
-Semantic SwiftUI components
-
-Recommended future additions:
-
-VoiceOver testing
-Accessibility hints
-Dynamic Type testing
-Larger font support
-📈 Future Enhancements
-
-Potential improvements:
-
-Todo categories
-Priority levels
-Due dates
-Calendar integration
-Notifications and reminders
-Cloud synchronization
-Widget support
-Apple Watch support
-Drag-and-drop organization
-Multiple list management
-Tags and labels
-Export and backup functionality
-🧪 Testing Strategy
-Unit Tests
-
-Verify:
-
-Todo creation
-Todo updates
-Todo deletion
-Search filtering
-Validation rules
-UI Tests
-
-Verify:
-
-Screen navigation
-Form submission
-Search functionality
-Swipe actions
-Detail screen presentation
-📋 Requirements
-Xcode 16 or newer
-iOS 18 or newer
-Swift 6.0 recommended
-▶️ Installation
-Clone the repository.
-git clone <repository-url>
-Open:
-TodoApp.xcodeproj
-Select:
-TodoApp
-Choose an iOS Simulator or physical device.
-Build and run:
-⌘ + R
-👨‍💻 Intended Audience
-SwiftUI Beginners
-iOS Developers
-Mobile Automation Engineers
-QA Engineers
-Students learning iOS development
-Developers preparing for interviews
-⭐ Project Goals
-Demonstrate SwiftUI best practices
-Showcase MVVM architecture
-Learn SwiftData persistence
-Practice iOS automation testing
-Provide a reusable starter project
-Serve as a reference for modern iOS development
-
-TodoApp is a lightweight yet production-style SwiftUI project that demonstrates how to build maintainable, testable, and scalable iOS applications using modern Apple frameworks.
-
 📈 Scalability
 
-The project is designed with scalability in mind. The MVVM architecture and modular folder structure make it easy to introduce new features without impacting existing functionality.
+The project is designed with scalability in mind.
 
 Scalability Benefits
 Easy addition of new screens and workflows
 Reusable SwiftUI components
 Separation of UI and business logic
 Extensible ViewModel layer
-Future-ready architecture for larger applications
-Supports migration to cloud-based storage solutions
-Can be extended to support multiple user profiles
-Ready for feature modules and package-based development
+Future-ready architecture
 Potential Scale-Up Features
 Shared lists and collaboration
 Cloud synchronization
 Multi-device support
 Team task management
 Role-based permissions
-Offline-first architecture
 🔧 Maintainability
-
-The codebase follows clean coding principles and modular organization to improve long-term maintainability.
-
 Maintainability Features
 MVVM architecture
 Single Responsibility Principle
@@ -319,39 +177,122 @@ Reusable UI components
 Consistent naming conventions
 Clear folder structure
 Minimal code duplication
-Easy-to-read SwiftUI views
-Testable business logic
 Benefits
-Faster onboarding for new developers
-Easier debugging and troubleshooting
+Faster onboarding
+Easier debugging
 Reduced technical debt
-Simplified feature enhancements
-Improved test coverage
+Simplified enhancements
 🔒 Security Considerations
-
-Although TodoApp is a local-first application, it follows security-conscious design principles.
-
 Current Security Measures
 Local data storage using SwiftData
-No sensitive data transmitted over networks
 Native iOS sandbox protection
 Secure application lifecycle management
-Data isolated within the application container
 Future Security Enhancements
-Face ID / Touch ID authentication
-User authentication and authorization
+Face ID / Touch ID
 Keychain integration
-Encrypted local storage
+Encrypted storage
 Secure cloud synchronization
-Data backup encryption
-Audit logging
-Role-based access control
 Security Best Practices
-Validate user input before processing
-Avoid storing sensitive information in plain text
-Use Apple's security frameworks where applicable
+Validate user input
+Avoid plain text sensitive data
 Follow OWASP Mobile Security Guidelines
-Keep dependencies updated regularly.
+🚀 Performance Optimization
+Performance Features
+SwiftUI native rendering
+Efficient SwiftData queries
+Real-time search filtering
+Optimized state management
+Performance Best Practices
+Keep business logic outside Views
+Avoid unnecessary view refreshes
+Use stable identifiers
+Future Optimizations
+Pagination
+Image caching
+Performance dashboards
+🧩 Reusability
+Reusable Components
+TodoCardView
+EmptyStateView
+Search functionality
+ViewModel architecture
+Benefits
+Faster development
+Reduced duplication
+Easier maintenance
+🔐 Data Privacy
+Privacy Features
+Data stored locally
+No third-party tracking
+No external data transmission
+Privacy Principles
+Data minimization
+Transparency
+User control
+Future Privacy Enhancements
+Secure backup
+Data export
+Privacy settings dashboard
+📊 Monitoring & Analytics
+Potential Monitoring Features
+Crash reporting
+Error tracking
+Performance monitoring
+Feature usage tracking
+Future Integrations
+Firebase Analytics
+Firebase Crashlytics
+Datadog
+New Relic
+Sentry
+Key Metrics
+App launch time
+Search responsiveness
+Crash-free sessions
+User retention
+📈 Future Enhancements
+Todo categories
+Priority levels
+Due dates
+Calendar integration
+Notifications
+Widget support
+Apple Watch support
+🧪 Testing Strategy
+Unit Tests
+Todo creation
+Todo updates
+Todo deletion
+Search filtering
+UI Tests
+Navigation
+Form submission
+Search
+Swipe actions
+📋 Requirements
+Xcode 16+
+iOS 18+
+Swift 6+
+▶️ Installation
+Clone the repository.
+Open TodoApp.xcodeproj.
+Select the TodoApp scheme.
+Choose a simulator.
+Press ⌘ + R.
+👨‍💻 Intended Audience
+SwiftUI Developers
+iOS Engineers
+Mobile Automation Engineers
+QA Engineers
+Students
+⭐ Project Goals
+Demonstrate SwiftUI best practices
+Showcase MVVM architecture
+Learn SwiftData persistence
+Practice iOS automation testing
+Provide a reusable starter project
+
+TodoApp is a lightweight yet production-style SwiftUI project that demonstrates how to build maintainable, testable, scalable, and automation-ready iOS applications using modern Apple frameworks.
 
 # 🚀 Performance Optimization
 
