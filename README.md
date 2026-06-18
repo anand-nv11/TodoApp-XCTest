@@ -59,7 +59,9 @@ Empty state handling
 Local persistence with SwiftData
 Native Dark Mode support
 Clean and reusable SwiftUI components
+
 📊 Features Matrix
+
 Feature	Supported
 Create Todo	✅
 Edit Todo	✅
@@ -73,6 +75,7 @@ Detail View	✅
 Unit Testing	✅
 UI Automation	✅
 Offline Support	✅
+
 🏗 Architecture
 
 The application follows the MVVM pattern.
@@ -102,6 +105,7 @@ Database
 Handles SwiftData persistence operations.
 
 📱 Screens
+
 Todo List Screen
 View all todos
 Search todos
@@ -115,7 +119,9 @@ Todo Detail Screen
 View complete todo information
 Track status
 Read description
+
 📷 Screenshots
+
 Todo List	Add/Edit Todo	Todo Details
 Add Screenshots/todo-list.png	Add Screenshots/add-edit-todo.png	Add Screenshots/todo-details.png
 Additional Screens
@@ -134,7 +140,9 @@ Testing
 Swift Testing
 XCTest
 XCUIAutomation
+
 🧪 Automation Support
+
 Supported Frameworks
 XCTest
 XCUIAutomation
@@ -153,6 +161,7 @@ Reporting Tools
 Allure Reports
 XCTest Reports
 HTML Reports
+
 📈 Scalability
 
 The project is designed with scalability in mind.
@@ -169,7 +178,9 @@ Cloud synchronization
 Multi-device support
 Team task management
 Role-based permissions
+
 🔧 Maintainability
+
 Maintainability Features
 MVVM architecture
 Single Responsibility Principle
@@ -182,7 +193,9 @@ Faster onboarding
 Easier debugging
 Reduced technical debt
 Simplified enhancements
+
 🔒 Security Considerations
+
 Current Security Measures
 Local data storage using SwiftData
 Native iOS sandbox protection
@@ -196,7 +209,9 @@ Security Best Practices
 Validate user input
 Avoid plain text sensitive data
 Follow OWASP Mobile Security Guidelines
+
 🚀 Performance Optimization
+
 Performance Features
 SwiftUI native rendering
 Efficient SwiftData queries
@@ -210,7 +225,9 @@ Future Optimizations
 Pagination
 Image caching
 Performance dashboards
+
 🧩 Reusability
+
 Reusable Components
 TodoCardView
 EmptyStateView
@@ -220,7 +237,9 @@ Benefits
 Faster development
 Reduced duplication
 Easier maintenance
+
 🔐 Data Privacy
+
 Privacy Features
 Data stored locally
 No third-party tracking
@@ -233,7 +252,9 @@ Future Privacy Enhancements
 Secure backup
 Data export
 Privacy settings dashboard
+
 📊 Monitoring & Analytics
+
 Potential Monitoring Features
 Crash reporting
 Error tracking
@@ -258,7 +279,9 @@ Calendar integration
 Notifications
 Widget support
 Apple Watch support
+
 🧪 Testing Strategy
+
 Unit Tests
 Todo creation
 Todo updates
@@ -269,7 +292,9 @@ Navigation
 Form submission
 Search
 Swipe actions
+
 📋 Requirements
+
 Xcode 16+
 iOS 18+
 Swift 6+
@@ -279,13 +304,17 @@ Open TodoApp.xcodeproj.
 Select the TodoApp scheme.
 Choose a simulator.
 Press ⌘ + R.
+
 👨‍💻 Intended Audience
+
 SwiftUI Developers
 iOS Engineers
 Mobile Automation Engineers
 QA Engineers
 Students
+
 ⭐ Project Goals
+
 Demonstrate SwiftUI best practices
 Showcase MVVM architecture
 Learn SwiftData persistence
