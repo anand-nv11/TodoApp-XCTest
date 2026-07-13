@@ -62,8 +62,8 @@ final class TodoAppUITests: XCTestCase {
         app.launch()
 
         app.buttons["Menu"].tap()
-        XCTAssertTrue(app.buttons["Tasks"].waitForExistence(timeout: 3))
-        app.buttons["Tasks"].tap()
+        XCTAssertTrue(app.buttons["sideMenuTasks"].waitForExistence(timeout: 3))
+        app.buttons["sideMenuTasks"].tap()
 
         XCTAssertTrue(app.navigationBars["Tasks"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.buttons["Add Task"].exists)
@@ -85,8 +85,8 @@ final class TodoAppUITests: XCTestCase {
         app.launch()
 
         app.buttons["Menu"].tap()
-        XCTAssertTrue(app.buttons["Calendar"].waitForExistence(timeout: 3))
-        app.buttons["Calendar"].tap()
+        XCTAssertTrue(app.buttons["sideMenuCalendar"].waitForExistence(timeout: 3))
+        app.buttons["sideMenuCalendar"].tap()
 
         XCTAssertTrue(app.navigationBars["Calendar"].waitForExistence(timeout: 3))
     }
@@ -95,7 +95,7 @@ final class TodoAppUITests: XCTestCase {
         let app = makeApp()
         app.launch()
 
-        app.buttons["Settings"].tap()
+        app.buttons["homeSettingsButton"].tap()
 
         XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts["App Details"].exists)
@@ -105,7 +105,7 @@ final class TodoAppUITests: XCTestCase {
         let app = makeApp()
         app.launch()
 
-        app.buttons.matching(identifier: "View All").element(boundBy: 1).tap()
+        app.buttons["ListsViewAllButton"].tap()
 
         XCTAssertTrue(app.navigationBars["Lists"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts["Personal Tasks"].exists)
@@ -115,7 +115,7 @@ final class TodoAppUITests: XCTestCase {
         let app = makeApp()
         app.launch()
 
-        app.buttons.matching(identifier: "View All").element(boundBy: 2).tap()
+        app.buttons["GoalsViewAllButton"].tap()
 
         XCTAssertTrue(app.navigationBars["Goals"].waitForExistence(timeout: 3))
         XCTAssertTrue(app.staticTexts["Weekly Goals"].exists)
@@ -126,8 +126,8 @@ final class TodoAppUITests: XCTestCase {
         app.launch()
 
         app.buttons["Menu"].tap()
-        XCTAssertTrue(app.buttons["Settings"].waitForExistence(timeout: 3))
-        app.buttons["Settings"].tap()
+        XCTAssertTrue(app.buttons["sideMenuSettings"].waitForExistence(timeout: 3))
+        app.buttons["sideMenuSettings"].tap()
 
         XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 3))
     }
@@ -137,8 +137,8 @@ final class TodoAppUITests: XCTestCase {
         app.launch()
 
         app.buttons["Menu"].tap()
-        XCTAssertTrue(app.buttons["Lists"].waitForExistence(timeout: 3))
-        app.buttons["Lists"].tap()
+        XCTAssertTrue(app.buttons["sideMenuLists"].waitForExistence(timeout: 3))
+        app.buttons["sideMenuLists"].tap()
 
         XCTAssertTrue(app.navigationBars["Lists"].waitForExistence(timeout: 3))
     }
@@ -148,8 +148,8 @@ final class TodoAppUITests: XCTestCase {
         app.launch()
 
         app.buttons["Menu"].tap()
-        XCTAssertTrue(app.buttons["Goals"].waitForExistence(timeout: 3))
-        app.buttons["Goals"].tap()
+        XCTAssertTrue(app.buttons["sideMenuGoals"].waitForExistence(timeout: 3))
+        app.buttons["sideMenuGoals"].tap()
 
         XCTAssertTrue(app.navigationBars["Goals"].waitForExistence(timeout: 3))
     }
@@ -158,7 +158,7 @@ final class TodoAppUITests: XCTestCase {
         let app = makeApp()
         app.launch()
 
-        app.buttons["Notifications"].tap()
+        app.buttons["homeNotificationsButton"].tap()
 
         XCTAssertTrue(app.navigationBars["Notifications"].waitForExistence(timeout: 3))
     }
@@ -168,8 +168,8 @@ final class TodoAppUITests: XCTestCase {
         app.launch()
 
         app.buttons["Menu"].tap()
-        XCTAssertTrue(app.buttons["Notification"].waitForExistence(timeout: 3))
-        app.buttons["Notification"].tap()
+        XCTAssertTrue(app.buttons["sideMenuNotification"].waitForExistence(timeout: 3))
+        app.buttons["sideMenuNotification"].tap()
 
         XCTAssertTrue(app.navigationBars["Notifications"].waitForExistence(timeout: 3))
     }

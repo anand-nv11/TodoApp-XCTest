@@ -117,9 +117,12 @@ final class TodoListViewModel {
         using context: ModelContext
     ) {
 
+        let deletedID = todo.id
+        todos.removeAll { $0.id == deletedID }
+
         context.delete(todo)
 
-        save(using: context)
+        save(using: context, reloadAfterSaving: false)
     }
 
     func delete(
@@ -128,30 +131,40 @@ final class TodoListViewModel {
     ) {
 
         let visibleTodos = filteredTodos
+        let todosToDelete = offsets.compactMap { index in
+            visibleTodos.indices.contains(index) ? visibleTodos[index] : nil
+        }
+        let deletedIDs = Set(todosToDelete.map(\.id))
 
-        for index in offsets
-        where visibleTodos.indices.contains(index) {
+        todos.removeAll { deletedIDs.contains($0.id) }
 
-            context.delete(visibleTodos[index])
+        for todo in todosToDelete {
+            context.delete(todo)
         }
 
-        save(using: context)
+        save(using: context, reloadAfterSaving: false)
     }
 
     // MARK: - Save
 
-    private func save(using context: ModelContext) {
+    private func save(
+        using context: ModelContext,
+        reloadAfterSaving: Bool = true
+    ) {
 
         do {
 
             try context.save()
 
-            loadTodos(using: context)
+            if reloadAfterSaving {
+                loadTodos(using: context)
+            }
 
             errorMessage = nil
 
         } catch {
 
+            loadTodos(using: context)
             errorMessage = error.localizedDescription
         }
     }

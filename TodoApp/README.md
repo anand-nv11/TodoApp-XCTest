@@ -57,3 +57,4 @@ SwiftData is used for local storage and in-memory testing.
 
 Author
 Built with SwiftUI and SwiftData.
+Add github action.

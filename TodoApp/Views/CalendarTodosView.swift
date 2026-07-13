@@ -108,7 +108,7 @@ struct CalendarTodosView: View {
                 .presentationDragIndicator(.visible)
         }
         .task {
-            await viewModel.loadTodos(using: modelContext)
+            viewModel.loadTodos(using: modelContext)
         }
     }
 
@@ -117,9 +117,7 @@ struct CalendarTodosView: View {
             TodoDetailView(todo: todo, viewModel: viewModel)
         } label: {
             TodoCardView(todo: todo) {
-                Task {
-                    await viewModel.toggleCompletion(for: todo, using: modelContext)
-                }
+                viewModel.toggleCompletion(for: todo, using: modelContext)
             }
         }
         .buttonStyle(.plain)
@@ -128,9 +126,7 @@ struct CalendarTodosView: View {
         .listRowBackground(Color.clear)
         .swipeActions(edge: .trailing) {
             Button(role: .destructive) {
-                Task {
-                    await viewModel.delete(todo, using: modelContext)
-                }
+                viewModel.delete(todo, using: modelContext)
             } label: {
                 Label("Delete", systemImage: "trash")
             }

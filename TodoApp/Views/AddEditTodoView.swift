@@ -69,9 +69,7 @@ struct AddEditTodoView: View {
 
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        Task {
-                            await saveTodo()
-                        }
+                        saveTodo()
                     }
                     .disabled(!canSave)
                     .accessibilityIdentifier("saveTodoButton")
@@ -80,9 +78,9 @@ struct AddEditTodoView: View {
         }
     }
 
-    private func saveTodo() async {
+    private func saveTodo() {
         if let todo {
-            await viewModel.updateTodo(
+            viewModel.updateTodo(
                 todo,
                 title: title,
                 details: details,
@@ -92,7 +90,7 @@ struct AddEditTodoView: View {
                 using: modelContext
             )
         } else {
-            await viewModel.addTodo(
+            viewModel.addTodo(
                 title: title,
                 details: details,
                 dueDate: dueDate,

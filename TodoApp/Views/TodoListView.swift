@@ -48,9 +48,7 @@ struct TodoListView: View {
                                 TodoDetailView(todo: todo, viewModel: viewModel)
                             } label: {
                                 TodoCardView(todo: todo) {
-                                    Task {
-                                        await viewModel.toggleCompletion(for: todo, using: modelContext)
-                                    }
+                                    viewModel.toggleCompletion(for: todo, using: modelContext)
                                 }
                             }
                             .buttonStyle(.plain)
@@ -59,9 +57,7 @@ struct TodoListView: View {
                             .listRowBackground(Color.clear)
                             .swipeActions(edge: .trailing) {
                                 Button(role: .destructive) {
-                                    Task {
-                                        await viewModel.delete(todo, using: modelContext)
-                                    }
+                                    viewModel.delete(todo, using: modelContext)
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
@@ -98,7 +94,7 @@ struct TodoListView: View {
                 .background(dashboardBackground)
                 .contentMargins(.top, 64, for: .scrollContent)
                 .refreshable {
-                    await viewModel.loadTodos(using: modelContext)
+                    viewModel.loadTodos(using: modelContext)
                 }
 
                 VStack {
@@ -189,7 +185,7 @@ struct TodoListView: View {
                 NotificationsView(viewModel: viewModel)
             }
             .task {
-                await viewModel.loadTodos(using: modelContext)
+                viewModel.loadTodos(using: modelContext)
             }
             .alert("Todo Error", isPresented: errorBinding) {
                 Button("OK", role: .cancel) {
@@ -275,6 +271,7 @@ private struct DashboardTopBar: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("Settings")
+                .accessibilityIdentifier("homeSettingsButton")
 
                 Button(action: notificationsAction) {
                     Image(systemName: "bell")
@@ -282,6 +279,7 @@ private struct DashboardTopBar: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("Notifications")
+                .accessibilityIdentifier("homeNotificationsButton")
             }
             .font(.title3.weight(.medium))
             .foregroundStyle(.blue)
@@ -442,6 +440,7 @@ private struct SideMenuRow: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel(title)
+        .accessibilityIdentifier("sideMenu\(title)")
     }
 }
 
@@ -494,6 +493,7 @@ private struct SectionTitleRow: View {
                 .font(.caption.weight(.semibold))
                 .buttonStyle(.plain)
                 .foregroundStyle(.blue)
+                .accessibilityIdentifier("\(title.replacingOccurrences(of: " ", with: ""))ViewAllButton")
             }
         }
     }

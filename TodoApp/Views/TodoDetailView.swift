@@ -49,9 +49,7 @@ struct TodoDetailView: View {
                 .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
 
                 Button {
-                    Task {
-                        await viewModel.toggleCompletion(for: todo, using: modelContext)
-                    }
+                    viewModel.toggleCompletion(for: todo, using: modelContext)
                 } label: {
                     Label(todo.isCompleted ? "Mark as Pending" : "Mark as Completed", systemImage: todo.isCompleted ? "arrow.uturn.backward.circle" : "checkmark.circle")
                         .frame(maxWidth: .infinity)

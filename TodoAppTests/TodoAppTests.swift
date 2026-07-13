@@ -10,12 +10,12 @@ final class TodoAppTests: XCTestCase {
         return (TodoListViewModel(), container.mainContext)
     }
     
-    func testAddTodoStoresItemLocally() async throws {
+    func testAddTodoStoresItemLocally() throws {
         let sut = try makeSUT()
         let dueDate = Date(timeIntervalSince1970: 1_800_000_000)
         let dueTime = Date(timeIntervalSince1970: 1_800_036_000)
 
-        await sut.viewModel.addTodo(
+        sut.viewModel.addTodo(
             title: "  Buy milk  ",
             details: "From the local store",
             dueDate: dueDate,
@@ -33,11 +33,11 @@ final class TodoAppTests: XCTestCase {
         XCTAssertEqual(sut.viewModel.completedCount, 0)
     }
 
-    func testSearchFiltersByTitleAndDescription() async throws {
+    func testSearchFiltersByTitleAndDescription() throws {
         let sut = try makeSUT()
 
-        await sut.viewModel.addTodo(title: "Read docs", details: "SwiftData persistence", dueDate: .now, dueTime: .now, isCompleted: false, using: sut.context)
-        await sut.viewModel.addTodo(title: "Plan demo", details: "Screens and README", dueDate: .now, dueTime: .now, isCompleted: true, using: sut.context)
+        sut.viewModel.addTodo(title: "Read docs", details: "SwiftData persistence", dueDate: .now, dueTime: .now, isCompleted: false, using: sut.context)
+        sut.viewModel.addTodo(title: "Plan demo", details: "Screens and README", dueDate: .now, dueTime: .now, isCompleted: true, using: sut.context)
 
         sut.viewModel.searchText = "swiftdata"
 
@@ -45,18 +45,18 @@ final class TodoAppTests: XCTestCase {
         XCTAssertEqual(sut.viewModel.filteredTodos.first?.title, "Read docs")
     }
 
-    func testUpdateAndToggleTodo() async throws {
+    func testUpdateAndToggleTodo() throws {
         let sut = try makeSUT()
         let originalDate = Date(timeIntervalSince1970: 1_800_000_000)
         let originalTime = Date(timeIntervalSince1970: 1_800_003_600)
         let updatedDate = Date(timeIntervalSince1970: 1_800_086_400)
         let updatedTime = Date(timeIntervalSince1970: 1_800_090_000)
 
-        await sut.viewModel.addTodo(title: "Draft", details: "Old details", dueDate: originalDate, dueTime: originalTime, isCompleted: false, using: sut.context)
+        sut.viewModel.addTodo(title: "Draft", details: "Old details", dueDate: originalDate, dueTime: originalTime, isCompleted: false, using: sut.context)
         let todo = try XCTUnwrap(sut.viewModel.todos.first)
 
-        await sut.viewModel.updateTodo(todo, title: "Final", details: "Updated details", dueDate: updatedDate, dueTime: updatedTime, isCompleted: false, using: sut.context)
-        await sut.viewModel.toggleCompletion(for: todo, using: sut.context)
+        sut.viewModel.updateTodo(todo, title: "Final", details: "Updated details", dueDate: updatedDate, dueTime: updatedTime, isCompleted: false, using: sut.context)
+        sut.viewModel.toggleCompletion(for: todo, using: sut.context)
 
         XCTAssertEqual(sut.viewModel.todos.first?.title, "Final")
         XCTAssertEqual(sut.viewModel.todos.first?.details, "Updated details")
@@ -66,13 +66,13 @@ final class TodoAppTests: XCTestCase {
         XCTAssertEqual(sut.viewModel.pendingCount, 0)
     }
 
-    func testDeleteTodoRemovesStoredItem() async throws {
+    func testDeleteTodoRemovesStoredItem() throws {
         let sut = try makeSUT()
 
-        await sut.viewModel.addTodo(title: "Delete me", details: "Temporary", dueDate: .now, dueTime: .now, isCompleted: false, using: sut.context)
+        sut.viewModel.addTodo(title: "Delete me", details: "Temporary", dueDate: .now, dueTime: .now, isCompleted: false, using: sut.context)
         let todo = try XCTUnwrap(sut.viewModel.todos.first)
 
-        await sut.viewModel.delete(todo, using: sut.context)
+        sut.viewModel.delete(todo, using: sut.context)
 
         XCTAssertTrue(sut.viewModel.todos.isEmpty)
         XCTAssertEqual(sut.viewModel.pendingCount, 0)
