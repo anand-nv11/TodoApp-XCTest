@@ -8,14 +8,16 @@ public class AppLaunchTest extends BaseTest {
 
  @Test
  public void verifyAppLaunch() {
-  System.out.println("AppLaunchTest started");
+  System.out.println("AppLaunchTest is running");
 
   Assert.assertNotNull(
           driver,
-          "IOSDriver was not initialized"
+          "The Appium driver was not created"
   );
 
-  System.out.println("Session ID: " + driver.getSessionId());
-  System.out.println("AppLaunchTest completed");
+  Assert.assertNotNull(
+          driver.getSessionId(),
+          "The Appium session was not created"
+  );
  }
 }

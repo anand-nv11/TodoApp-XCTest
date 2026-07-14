@@ -108,17 +108,8 @@
                     <useSystemClassLoader>true</useSystemClassLoader>
                     <useFile>false</useFile>
                     <failIfNoTests>true</failIfNoTests>
-
-                    <argLine>
-                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
-                    </argLine>
-
-                    <systemPropertyVariables>
-                        <allure.results.directory>
-                            ${project.basedir}/allure-results
-                        </allure.results.directory>
-                    </systemPropertyVariables>
                 </configuration>
+
 
                 <dependencies>
                     <dependency>
@@ -133,3 +124,16 @@
     </build>
 
 </project>
+
+
+
+
+<configuration>
+    <suiteXmlFiles>
+        <suiteXmlFile>${project.basedir}/testng.xml</suiteXmlFile>
+    </suiteXmlFiles>
+
+    <useSystemClassLoader>true</useSystemClassLoader>
+    <useFile>false</useFile>
+    <failIfNoTests>true</failIfNoTests>
+</configuration>
