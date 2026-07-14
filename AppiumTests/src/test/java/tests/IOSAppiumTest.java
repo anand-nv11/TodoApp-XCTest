@@ -27,7 +27,7 @@ public class IOSAppiumTest {
 
         DesiredCapabilities caps = new DesiredCapabilities();
 
-        String bundleId = System.getProperty("bundleId", "test.com.SwiftUIDemoAllComponents");
+        String bundleId = System.getProperty("bundleId", "test.com.TodoApp");
         String udid = System.getProperty("udid");
         String deviceName = System.getProperty("deviceName", "iPhone 17");
         String platformVersion = System.getProperty("platformVersion", "26.4");
