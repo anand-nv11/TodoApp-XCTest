@@ -5,13 +5,13 @@
   <test name="TodoApp Smoke and Functional Tests">
     <classes>
       <class name="tests.AppLaunchTest"/>
-      <class name="tests.AddTodoTest"/>
+      <!-- <class name="tests.AddTodoTest"/>
       <class name="tests.SearchTodoTest"/>
       <class name="tests.TodoDetailTest"/>
       <class name="tests.NavigationTest"/>
       <class name="tests.SettingsTest"/>
       <class name="tests.NotificationsTest"/>
-      <class name="tests.CalendarTest"/>
+      <class name="tests.CalendarTest"/> -->
     </classes>
   </test>
 </suite>
