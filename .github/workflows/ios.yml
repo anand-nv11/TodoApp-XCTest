@@ -323,24 +323,93 @@ jobs:
             -Dincludes=io.appium:java-client,org.seleniumhq.selenium
 
       # ---------------------------------------------------------
+      # Verify TestNG tests
+      # ---------------------------------------------------------
+
+      - name: Verify TestNG Test Files
+        working-directory: AppiumTests
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "===== JAVA TEST FILES ====="
+          find src/test/java -type f -name "*.java" -print
+
+          echo "===== TESTNG ANNOTATIONS ====="
+          grep -R "org.testng.annotations.Test" src/test/java || true
+          grep -R "@Test" src/test/java || true
+
+          echo "===== TESTNG XML ====="
+          if [ ! -f "testng.xml" ]; then
+            echo "ERROR: AppiumTests/testng.xml was not found."
+            exit 1
+          fi
+
+          cat testng.xml
+
+          echo "===== COMPILE TEST CLASSES ====="
+          mvn test-compile
+
+          echo "===== COMPILED TEST CLASSES ====="
+          find target/test-classes -type f -name "*.class" -print
+
+          if ! find target/test-classes -type f -name "*Test.class" | grep -q .; then
+            echo "ERROR: No compiled test classes ending with Test.class were found."
+            exit 1
+          fi
+
+      # ---------------------------------------------------------
       # Run tests
       # ---------------------------------------------------------
 
-
       - name: Run Appium Tests and Print Reports
+        working-directory: AppiumTests
+        shell: bash
         run: |
-          cd AppiumTests
+          set +e
+
+          echo "===== TEST CONFIGURATION ====="
+          echo "Appium Server: http://127.0.0.1:4723"
+          echo "Bundle ID: $BUNDLE_ID"
+          echo "Device UDID: $DEVICE_ID"
+          echo "Device name: $DEVICE_NAME"
+          echo "Platform version: $PLATFORM_VERSION"
+
           mvn clean test \
-            -DbundleId=test.com.TodoApp \
+            -DappiumServerUrl="http://127.0.0.1:4723" \
+            -DbundleId="$BUNDLE_ID" \
             -Dudid="$DEVICE_ID" \
             -DdeviceName="$DEVICE_NAME" \
-            -DplatformVersion="26.4" \
-            -Dsurefire.useFile=false || TEST_FAILED=true
+            -DplatformVersion="$PLATFORM_VERSION" \
+            -Dsurefire.useFile=false
+
+          TEST_EXIT_CODE=$?
+
+          echo "===== MAVEN EXIT CODE: $TEST_EXIT_CODE ====="
+
+          echo "===== SUREFIRE REPORT FILES ====="
+          find target/surefire-reports -type f -print 2>/dev/null || true
+
           echo "===== SUREFIRE TXT REPORTS ====="
-          find target/surefire-reports -name "*.txt" -type f -exec cat {} \; || true
-          if [ "$TEST_FAILED" = true ]; then
-            exit 1
+          find target/surefire-reports \
+            -type f \
+            -name "*.txt" \
+            -exec sh -c 'echo "----- $1 -----"; cat "$1"' _ {} \; \
+            2>/dev/null || true
+
+          echo "===== SUREFIRE XML REPORTS ====="
+          find target/surefire-reports \
+            -type f \
+            -name "*.xml" \
+            -exec sh -c 'echo "----- $1 -----"; cat "$1"' _ {} \; \
+            2>/dev/null || true
+
+          if [ "$TEST_EXIT_CODE" -ne 0 ]; then
+            echo "===== APPIUM SERVER LOG ====="
+            cat "$GITHUB_WORKSPACE/appium.log" || true
           fi
+
+          exit "$TEST_EXIT_CODE"
 
       # ---------------------------------------------------------
       # Artifacts
