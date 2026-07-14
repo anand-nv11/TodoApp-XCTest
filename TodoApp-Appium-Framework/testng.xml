@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TodoApp iOS Appium Suite" verbose="1" parallel="false">
+  <listeners><listener class-name="utils.TestListener"/></listeners>
+  <test name="TodoApp Smoke and Functional Tests">
+    <classes>
+      <class name="tests.AppLaunchTest"/>
+      <class name="tests.AddTodoTest"/>
+      <class name="tests.SearchTodoTest"/>
+      <class name="tests.TodoDetailTest"/>
+      <class name="tests.NavigationTest"/>
+      <class name="tests.SettingsTest"/>
+      <class name="tests.NotificationsTest"/>
+      <class name="tests.CalendarTest"/>
+    </classes>
+  </test>
+</suite>
