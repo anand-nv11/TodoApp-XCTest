@@ -331,7 +331,7 @@ jobs:
         run: |
           cd AppiumTests
           mvn clean test \
-            -DbundleId=test.com.SwiftUIDemoAllComponents \
+            -DbundleId=test.com.TodoApp \
             -Dudid="$DEVICE_ID" \
             -DdeviceName="$DEVICE_NAME" \
             -DplatformVersion="26.4" \
