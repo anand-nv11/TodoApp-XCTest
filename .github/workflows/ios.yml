@@ -326,60 +326,21 @@ jobs:
       # Run tests
       # ---------------------------------------------------------
 
+
       - name: Run Appium Tests and Print Reports
-        working-directory: AppiumTests
-        shell: bash
         run: |
-          set +e
-
-          echo "===== TEST CONFIGURATION ====="
-          echo "Appium Server: http://127.0.0.1:4723"
-          echo "Bundle ID: $BUNDLE_ID"
-          echo "Device UDID: $DEVICE_ID"
-          echo "Device name: $DEVICE_NAME"
-          echo "Platform version: $PLATFORM_VERSION"
-
+          cd AppiumTests
           mvn clean test \
-            -DbundleId="$BUNDLE_ID" \
+            -DbundleId=test.com.SwiftUIDemoAllComponents \
             -Dudid="$DEVICE_ID" \
             -DdeviceName="$DEVICE_NAME" \
-            -DplatformVersion="$PLATFORM_VERSION" \
-            -DappiumServerUrl="http://127.0.0.1:4723" \
-            -Dsurefire.useFile=false
-
-          TEST_EXIT_CODE=$?
-
-          echo "===== MAVEN EXIT CODE: $TEST_EXIT_CODE ====="
-
-          echo "===== SUREFIRE FILES ====="
-          find target/surefire-reports \
-            -type f \
-            -print 2>/dev/null || true
-
+            -DplatformVersion="26.4" \
+            -Dsurefire.useFile=false || TEST_FAILED=true
           echo "===== SUREFIRE TXT REPORTS ====="
-          find target/surefire-reports \
-            -type f \
-            -name "*.txt" \
-            -exec sh -c '
-              echo "---------- $1 ----------"
-              cat "$1"
-            ' _ {} \; 2>/dev/null || true
-
-          echo "===== SUREFIRE XML REPORTS ====="
-          find target/surefire-reports \
-            -type f \
-            -name "*.xml" \
-            -exec sh -c '
-              echo "---------- $1 ----------"
-              cat "$1"
-            ' _ {} \; 2>/dev/null || true
-
-          if [ "$TEST_EXIT_CODE" -ne 0 ]; then
-            echo "===== APPIUM SERVER LOG ====="
-            cat "$GITHUB_WORKSPACE/appium.log" || true
+          find target/surefire-reports -name "*.txt" -type f -exec cat {} \; || true
+          if [ "$TEST_FAILED" = true ]; then
+            exit 1
           fi
-
-          exit "$TEST_EXIT_CODE"
 
       # ---------------------------------------------------------
       # Artifacts
