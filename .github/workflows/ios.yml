@@ -15,7 +15,7 @@ jobs:
 
     env:
       PLATFORM_VERSION: "26.4"
-      PREFERRED_DEVICE_NAME: "iPhone 17 Pro"
+      PREFERRED_DEVICE_NAME: "iPhone 17"
       BUNDLE_ID: "test.com.TodoApp"
 
     steps:
