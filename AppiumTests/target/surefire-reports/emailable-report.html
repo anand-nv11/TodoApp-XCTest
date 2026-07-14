@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">TodoApp iOS Appium Suite</th></tr>
+<tr><td><a href="#t0">TodoApp Smoke and Functional Tests</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">1,184</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">TodoApp iOS Appium Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">TodoApp Smoke and Functional Tests &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">tests.AppLaunchTest</td><td><a href="#m0">setUp</a></td><td rowspan="1">1784024118820</td><td rowspan="1">1058</td></tr><tr><th colspan="4">TodoApp Smoke and Functional Tests &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">tests.AppLaunchTest</td><td><a href="#m1">verifyAppLaunch</a></td><td rowspan="1">1784024119976</td><td rowspan="1">0</td></tr></tbody>
+</table>
+<h2>TodoApp Smoke and Functional Tests</h2><h3 id="m0">tests.AppLaunchTest#setUp</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Unknown device or simulator UDID: &apos;D4E7F36F-A62E-458E-A0A4-0A5DB6256FB3&apos; 
+Host info: host: &apos;MacBookPro.lan&apos;, ip: &apos;2409:4090:301e:7002:38b3:acea:defb:825d%en0&apos;
+Build info: version: &apos;4.27.0&apos;, revision: &apos;d6e718d134&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;26.5.1&apos;, java.version: &apos;26.0.1&apos;
+Driver info: io.appium.java_client.ios.IOSDriver
+Command: [null, newSession {capabilities=[Capabilities {appium:automationName: XCuiTest, appium:bundleId: test.com.TodoApp, appium:deviceName: iPhone 17 Pro, appium:newCommandTimeout: 300, appium:noReset: true, appium:platformVersion: 26.4, appium:udid: D4E7F36F-A62E-458E-A0A4-0A5..., appium:wdaConnectionTimeout: 180000, appium:wdaLaunchTimeout: 180000, platformName: IOS}]}]
+Capabilities {appium:automationName: XCuiTest, appium:bundleId: test.com.TodoApp, appium:deviceName: iPhone 17 Pro, appium:newCommandTimeout: 300, appium:noReset: true, appium:platformVersion: 26.4, appium:udid: D4E7F36F-A62E-458E-A0A4-0A5..., appium:wdaConnectionTimeout: 180000, appium:wdaLaunchTimeout: 180000, platformName: IOS}
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61)
+	at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:176)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:270)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:174)
+	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:91)
+	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:103)
+	at io.appium.java_client.ios.IOSDriver.&lt;init&gt;(IOSDriver.java:101)
+	at base.BaseTest.setUp(BaseTest.java:70)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+... Removed 33 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">tests.AppLaunchTest#verifyAppLaunch</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Unknown device or simulator UDID: &apos;D4E7F36F-A62E-458E-A0A4-0A5DB6256FB3&apos; 
+Host info: host: &apos;MacBookPro.lan&apos;, ip: &apos;2409:4090:301e:7002:38b3:acea:defb:825d%en0&apos;
+Build info: version: &apos;4.27.0&apos;, revision: &apos;d6e718d134&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;26.5.1&apos;, java.version: &apos;26.0.1&apos;
+Driver info: io.appium.java_client.ios.IOSDriver
+Command: [null, newSession {capabilities=[Capabilities {appium:automationName: XCuiTest, appium:bundleId: test.com.TodoApp, appium:deviceName: iPhone 17 Pro, appium:newCommandTimeout: 300, appium:noReset: true, appium:platformVersion: 26.4, appium:udid: D4E7F36F-A62E-458E-A0A4-0A5..., appium:wdaConnectionTimeout: 180000, appium:wdaLaunchTimeout: 180000, platformName: IOS}]}]
+Capabilities {appium:automationName: XCuiTest, appium:bundleId: test.com.TodoApp, appium:deviceName: iPhone 17 Pro, appium:newCommandTimeout: 300, appium:noReset: true, appium:platformVersion: 26.4, appium:udid: D4E7F36F-A62E-458E-A0A4-0A5..., appium:wdaConnectionTimeout: 180000, appium:wdaLaunchTimeout: 180000, platformName: IOS}
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61)
+	at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:176)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:270)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:174)
+	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:91)
+	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:103)
+	at io.appium.java_client.ios.IOSDriver.&lt;init&gt;(IOSDriver.java:101)
+	at base.BaseTest.setUp(BaseTest.java:70)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+... Removed 33 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>
