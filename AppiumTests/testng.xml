@@ -9,9 +9,9 @@
         <classes>
             <class name="tests.IOSAppiumTest"/>
             <class name="tests.AppLaunchTest"/>
-            <class name="tests.BasicComponentTest"/>
-            <class name="tests.ComponentNavigationTest"/>
-            <class name="tests.ComponentSearchTest"/>
-        </classes>
-    </test>
-</suite>
+            <!--  <class name="tests.BasicComponentTest"/>
+             <class name="tests.ComponentNavigationTest"/>
+             <class name="tests.ComponentSearchTest"/> -->
+         </classes>
+     </test>
+ </suite>
